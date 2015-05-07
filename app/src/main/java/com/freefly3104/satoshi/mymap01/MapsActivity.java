@@ -277,6 +277,10 @@ public class MapsActivity extends FragmentActivity
     @Override
     public void onLoadFinished(Loader<JSONArray> loader, JSONArray data) {
 
+        final HashMap<String,List<Info>> hashmap = new HashMap<String,List<Info>>();
+        List<Info> ret = new ArrayList<Info>();
+        Info info;
+
         if (data != null) {
 
             // 既存のマーカーを消す処理
@@ -307,7 +311,22 @@ public class MapsActivity extends FragmentActivity
                     double latitude = jsData.getDouble("Latitude");
                     double longitude = jsData.getDouble("Longitude");
 
-                    // リサイズする場合
+                    // ロケーション情報をリストに格納
+                    info = new Info();
+                    info.setName(locationName);
+                    info.setAddress(addressAll);
+                    info.setFacilityName(facilityName);
+                    info.setFacilityPlace(facilityPlace);
+                    info.setContactPoint(contactPoint);
+                    info.setContactTelephone(contactTelephone);
+                    info.setLatitude(latitude);
+                    info.setLongitude(longitude);
+                    ret.add(info);
+
+                    // 名称をキーにロケーション情報をマップに格納
+                    hashmap.put(locationName, ret);
+
+                    // リサイズする
                     Resources res = this.getResources();
                     Bitmap bmp_orig = BitmapFactory.decodeResource(res, R.drawable.marker01);
                     Bitmap bmp_resized = Bitmap.createScaledBitmap(bmp_orig, 90, 90, false);
