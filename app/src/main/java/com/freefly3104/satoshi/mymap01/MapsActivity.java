@@ -301,6 +301,9 @@ public class MapsActivity extends FragmentActivity
                     String contactPoint = jsData.getString("ContactPoint");
                     String contactTelephone = jsData.getString("ContactTelephone");
 
+                    // 住所を連結
+                    String addressAll = isNull(prefecture + city + addressArea);
+
                     double latitude = jsData.getDouble("Latitude");
                     double longitude = jsData.getDouble("Longitude");
 
