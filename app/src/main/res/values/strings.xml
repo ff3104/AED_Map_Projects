@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">My Map01</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_SVdialog">ルート情報</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="btnRouteInfo">ルート情報</string>
+    <string name="btnMode">モード</string>
+    <string name="tvRouteInfo">ルート情報</string>
+
+    <string name="mode">モード</string>
+
+    <string name="dialog_title">GPSの有効化</string>
+    <string name="dialog_message">GPS機能が無効です。有効にして下さい。</string>
+
+</resources>
