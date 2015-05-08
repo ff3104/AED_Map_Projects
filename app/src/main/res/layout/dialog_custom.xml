@@ -87,7 +87,7 @@
             android:layout_margin="5dp"
             android:lineSpacingExtra="6dp"
             android:textSize="16sp"
-            android:textColor="#ff7f50" />
+            android:textColor="#333333" />
  
         <!-- OK ボタン -->
         <Button

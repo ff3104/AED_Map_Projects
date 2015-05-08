@@ -64,7 +64,7 @@ public class MapsActivity extends FragmentActivity
     // RadioButtonDialogの初期値
     private int default_RadioButton_index = 0;
 
-    private String[] items = {"walking", "driving"};
+    private String[] items = {"徒歩モード", "運転モード"};
 
     // 既存マーカーを消去する為
     private List<Marker> markerArray = new ArrayList<>();
@@ -463,6 +463,7 @@ public class MapsActivity extends FragmentActivity
         HttpURLConnection urlConnection = null;
 
         try{
+
             URL url = new URL(strUrl);
 
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -571,7 +572,7 @@ public class MapsActivity extends FragmentActivity
         // HTMLのテキストを通常の文字列へ
         String s = Html.fromHtml(text).toString();
 
-        String newText = s + "\n\nスタート付近の住所\n\n" + startAddress + "\n\nゴール付近の住所\n\n" + endAddress;
+        String newText = s + "\n\nスタート付近の住所\n\n" + startAddress + "\n\n\nゴール付近の住所\n\n" + endAddress;
 
         DialogFragment dialogFragment = ScrollViewFragment
                 .newInstance(R.string.tvRouteInfo, newText);
