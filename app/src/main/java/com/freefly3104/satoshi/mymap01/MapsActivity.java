@@ -212,8 +212,8 @@ public class MapsActivity extends FragmentActivity
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 mMap.setMyLocationEnabled(true);
+                mMap.setLocationSource(this);
             }
-            mMap.setLocationSource(this);
         }
     }
 
@@ -278,7 +278,7 @@ public class MapsActivity extends FragmentActivity
     public void onLoadFinished(Loader<JSONArray> loader, JSONArray data) {
 
         final HashMap<String,List<Info>> hashMap = new HashMap<>();
-        List<Info> ret = new ArrayList<>();
+        List<Info> ret;
         Info info;
 
         if (data != null) {
@@ -321,6 +321,8 @@ public class MapsActivity extends FragmentActivity
                     info.setContactTelephone(contactTelephone);
                     info.setLatitude(latitude);
                     info.setLongitude(longitude);
+
+                    ret = new ArrayList<>();
                     ret.add(info);
 
                     // 名称をキーにロケーション情報をマップに格納
@@ -351,21 +353,26 @@ public class MapsActivity extends FragmentActivity
                         }
 
                         dlatlng = marker.getPosition();
-                        default_RadioButton_index = 0;
-                        travelMode = "walking";
+//                        default_RadioButton_index = 0;
+//                        travelMode = "walking";
                         routeSearch(dlatlng);
 
                         String name = marker.getTitle();
-                        String address = hashMap.get(name).get(1).toString();
-                        String facilityName = hashMap.get(name).get(2).toString();
-                        String facilityPlace = hashMap.get(name).get(3).toString();
-                        String contactPoint = hashMap.get(name).get(4).toString();
-                        String contactTelephone = hashMap.get(name).get(5).toString();
 
-                        DialogFragment newFragment = InfoDialogFragment.newInstance(
+                        // 検証用
+//                        int testCnt = hashMap.get(name).size();
+//                        Toast.makeText(MapsActivity.this, "" + testCnt, Toast.LENGTH_SHORT).show();
+
+                        String address = hashMap.get(name).get(0).getAddress();
+                        String facilityName = hashMap.get(name).get(0).getFacilityName();
+                        String facilityPlace = hashMap.get(name).get(0).getFacilityPlace();
+                        String contactPoint = hashMap.get(name).get(0).getContactPoint();
+                        String contactTelephone = hashMap.get(name).get(0).getContactTelephone();
+
+                        DialogFragment infoFragment = InfoDialogFragment.newInstance(
                             name,address,facilityName,facilityPlace,contactPoint,contactTelephone);
 
-                            newFragment.show(getFragmentManager(), "dialog");
+                            infoFragment.show(getFragmentManager(), "infoDialog");
 
                         return false;
 
