@@ -67,7 +67,7 @@ public class MapsActivity extends FragmentActivity
     private String[] items = {"walking", "driving"};
 
     // 既存マーカーを消去する為
-    private List<Marker> markerArray = new ArrayList<Marker>();
+    private List<Marker> markerArray = new ArrayList<>();
     private Marker marker = null;
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
@@ -277,8 +277,8 @@ public class MapsActivity extends FragmentActivity
     @Override
     public void onLoadFinished(Loader<JSONArray> loader, JSONArray data) {
 
-        final HashMap<String,List<Info>> hashmap = new HashMap<String,List<Info>>();
-        List<Info> ret = new ArrayList<Info>();
+        final HashMap<String,List<Info>> hashMap = new HashMap<>();
+        List<Info> ret = new ArrayList<>();
         Info info;
 
         if (data != null) {
@@ -324,7 +324,7 @@ public class MapsActivity extends FragmentActivity
                     ret.add(info);
 
                     // 名称をキーにロケーション情報をマップに格納
-                    hashmap.put(locationName, ret);
+                    hashMap.put(locationName, ret);
 
                     // リサイズする
                     Resources res = this.getResources();
@@ -354,6 +354,19 @@ public class MapsActivity extends FragmentActivity
                         default_RadioButton_index = 0;
                         travelMode = "walking";
                         routeSearch(dlatlng);
+
+                        String name = marker.getTitle();
+                        String address = hashMap.get(name).get(1).toString();
+                        String facilityName = hashMap.get(name).get(2).toString();
+                        String facilityPlace = hashMap.get(name).get(3).toString();
+                        String contactPoint = hashMap.get(name).get(4).toString();
+                        String contactTelephone = hashMap.get(name).get(5).toString();
+
+                        DialogFragment newFragment = InfoDialogFragment.newInstance(
+                            name,address,facilityName,facilityPlace,contactPoint,contactTelephone);
+
+                            newFragment.show(getFragmentManager(), "dialog");
+
                         return false;
 
                         }
@@ -403,9 +416,7 @@ public class MapsActivity extends FragmentActivity
         //JSON指定
         String output = "json";
 
-        String url = "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters;
-
-        return url;
+        return "https://maps.googleapis.com/maps/api/directions/" + output + "?" + parameters;
     }
 
     // 第1引数：doInBackgroundメソッドの引数の型
@@ -455,9 +466,9 @@ public class MapsActivity extends FragmentActivity
 
             BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
 
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
 
-            String line = "";
+            String line;
             while( ( line = br.readLine()) != null){
                 sb.append(line);
             }
@@ -507,13 +518,13 @@ public class MapsActivity extends FragmentActivity
 
             super.onPostExecute(result);
 
-            ArrayList<LatLng> points = null;
+            ArrayList<LatLng> points;
             PolylineOptions lineOptions = null;
 
             if(result.size() != 0){
 
                 for(int i=0;i<result.size();i++){
-                    points = new ArrayList<LatLng>();
+                    points = new ArrayList<>();
                     lineOptions = new PolylineOptions();
 
                     List<HashMap<String, String>> path = result.get(i);

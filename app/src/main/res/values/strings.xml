@@ -14,4 +14,9 @@
     <string name="dialog_title">GPSの有効化</string>
     <string name="dialog_message">GPS機能が無効です。有効にして下さい。</string>
 
+    <!-- 設置先情報ダイアログ -->
+    <string name="title">設置先情報</string>
+    <string name="positive_button">OK</string>
+    <string name="close_button">×</string>
+
 </resources>
