@@ -514,7 +514,6 @@ public class MapsActivity extends FragmentActivity
                 text = values.temp;
                 startAddress = values.startAddress;
                 endAddress = values.endAddress;
-                // routes = parser.parse(jObject);
 
             }catch(Exception e){
                 e.printStackTrace();
