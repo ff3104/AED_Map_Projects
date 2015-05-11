@@ -304,6 +304,7 @@ public class MapsActivity extends FragmentActivity
                     String facilityPlace = jsData.getString("FacilityPlace");
                     String contactPoint = jsData.getString("ContactPoint");
                     String contactTelephone = jsData.getString("ContactTelephone");
+                    String url = jsData.getString("Url");
 
                     // 住所を連結
                     String addressAll = isNull(prefecture + city + addressArea);
@@ -319,6 +320,7 @@ public class MapsActivity extends FragmentActivity
                     info.setFacilityPlace(facilityPlace);
                     info.setContactPoint(contactPoint);
                     info.setContactTelephone(contactTelephone);
+                    info.setUrl(url);
                     info.setLatitude(latitude);
                     info.setLongitude(longitude);
 
@@ -353,8 +355,6 @@ public class MapsActivity extends FragmentActivity
                         }
 
                         dlatlng = marker.getPosition();
-//                        default_RadioButton_index = 0;
-//                        travelMode = "walking";
                         routeSearch(dlatlng);
 
                         String name = marker.getTitle();
@@ -364,13 +364,14 @@ public class MapsActivity extends FragmentActivity
 //                        Toast.makeText(MapsActivity.this, "" + testCnt, Toast.LENGTH_SHORT).show();
 
                         String address = hashMap.get(name).get(0).getAddress();
-                        String facilityName = hashMap.get(name).get(0).getFacilityName();
-                        String facilityPlace = hashMap.get(name).get(0).getFacilityPlace();
-                        String contactPoint = hashMap.get(name).get(0).getContactPoint();
-                        String contactTelephone = hashMap.get(name).get(0).getContactTelephone();
+                        String facilityName = isNull(hashMap.get(name).get(0).getFacilityName());
+                        String facilityPlace = isNull(hashMap.get(name).get(0).getFacilityPlace());
+                        String contactPoint = isNull(hashMap.get(name).get(0).getContactPoint());
+                        String contactTelephone = isNull(hashMap.get(name).get(0).getContactTelephone());
+                        String url = isNull(hashMap.get(name).get(0).getUrl());
 
                         DialogFragment infoFragment = InfoDialogFragment.newInstance(
-                            name,address,facilityName,facilityPlace,contactPoint,contactTelephone);
+                            name,address,facilityName,facilityPlace,contactPoint,contactTelephone,url);
 
                             infoFragment.show(getFragmentManager(), "infoDialog");
 

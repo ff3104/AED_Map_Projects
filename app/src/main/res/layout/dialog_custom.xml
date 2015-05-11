@@ -48,6 +48,19 @@
             android:lineSpacingExtra="6dp"
             android:textSize="16sp"
             android:textColor="#333333" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="left"
+            android:text="@string/tv_detail1"
+            android:lineSpacingExtra="6dp"
+            android:textSize="16sp"
+            android:textColor="#333333" />
         
         <!-- 公共設備_名称 -->
         <TextView
@@ -55,6 +68,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:lineSpacingExtra="6dp"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="left"
+            android:text="@string/tv_detail2"
             android:lineSpacingExtra="6dp"
             android:textSize="16sp"
             android:textColor="#333333" />
@@ -88,6 +114,17 @@
             android:lineSpacingExtra="6dp"
             android:textSize="16sp"
             android:textColor="#333333" />
+
+        <!-- url -->
+        <TextView
+            android:id="@+id/tv_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:lineSpacingExtra="6dp"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:autoLink="web" />
  
         <!-- OK ボタン -->
         <Button

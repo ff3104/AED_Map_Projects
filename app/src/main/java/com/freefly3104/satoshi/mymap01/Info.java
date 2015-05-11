@@ -11,8 +11,10 @@ public class Info {
     private String facilityPlace;
     private String contactPoint;
     private String contactTelephone;
+    private String url;
     private double latitude;
     private double longitude;
+
 
     public void setName(String name) {
         this.name = name;
@@ -36,6 +38,10 @@ public class Info {
 
     public void setContactTelephone(String contactTelephone) {
         this.contactTelephone = contactTelephone;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public void setLatitude(double latitude) {
@@ -68,6 +74,10 @@ public class Info {
 
     public String getContactTelephone() {
         return contactTelephone;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public double getLatitude() {

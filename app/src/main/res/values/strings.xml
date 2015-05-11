@@ -18,5 +18,7 @@
     <string name="title">設置先情報</string>
     <string name="positive_button">OK</string>
     <string name="close_button">×</string>
+    <string name="tv_detail1">設置先詳細情報1</string>
+    <string name="tv_detail2">設置先詳細情報2</string>
 
 </resources>

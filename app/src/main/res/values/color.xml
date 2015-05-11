@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <!-- ルート表示用ボタン -->
+   <color name="button_off_color1">#ff69b4</color>
+   <color name="button_on_color1">#ffb6c1</color>
+   
+   <!-- モードボタン -->
+   <color name="button_off_color2">#ffb6c1</color>
+   <color name="button_on_color2">#d8bfd8</color>
+</resources>
