@@ -557,8 +557,6 @@ public class MapsActivity extends FragmentActivity
                 //描画
                 polyline = mMap.addPolyline(lineOptions);
 
-                // text = Html.fromHtml(posinfo).toString();
-
             }else{
                 mMap.clear();
                 Toast.makeText(MapsActivity.this, "ルート情報を取得できませんでした", Toast.LENGTH_LONG).show();

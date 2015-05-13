@@ -39,6 +39,7 @@ public class JsonLoader extends AsyncTaskLoader<JSONArray> {
         HttpURLConnection conn = null;
         try {
 
+            // HttpsURLConnection でキャスト
             conn = (HttpsURLConnection) url.openConnection();
 
             conn.setRequestMethod("GET");

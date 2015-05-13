@@ -15,7 +15,6 @@ public class Info {
     private double latitude;
     private double longitude;
 
-
     public void setName(String name) {
         this.name = name;
     }

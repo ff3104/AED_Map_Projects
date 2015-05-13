@@ -9,17 +9,8 @@ import android.util.Log;
 
 public class RadioButtonFragment extends DialogFragment{
 
-//    private String[] array = {"Walking", "Driving"};
-//
     private int mCheckedId;
     private RadioButtonDialogOnOkClickListener mListener;
-
-//    private int index;
-//
-//    public RadioButtonFragment(int index){
-//        this.index = index;
-//        mCheckedId = index;
-//    }
 
     public void setListener(RadioButtonDialogOnOkClickListener listener){
         this.mListener = listener;
@@ -74,7 +65,6 @@ public class RadioButtonFragment extends DialogFragment{
 
                             }
                         });
-
 
         // AlertDialogインスタンスを生成し戻り値(オブジェクト)として返す
         return builder.create();
